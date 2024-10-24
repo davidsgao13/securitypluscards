@@ -1,17 +1,21 @@
 package com.example.securitypluscards.presentation.home.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.securitypluscards.R
@@ -26,23 +30,37 @@ fun HomeScreen(
 ) {
     val state = homeViewModel.state.value
 
-    Box(
+    Column(
         modifier = Modifier
-            .fillMaxHeight()
-            .fillMaxWidth()
-            .background(SoftBlue)
+            .fillMaxSize()
+            .background(SoftBlue),
     ) {
+        Column(
+            modifier = Modifier
+                .weight(.8f)
+                .padding(horizontal = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Spacer(modifier = Modifier.weight(1f))
+            Text(
+                modifier = Modifier.padding(start = 16.dp),
+                style = TextStyle(fontSize = 20.sp),
+                text = stringResource(R.string.time_to_study),
+            )
+            Spacer(modifier = Modifier.weight(.5f))
+            HomeCarousel(homeCarouselViewModel = hiltViewModel())
+            Spacer(modifier = Modifier.weight(1f))
+        }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight()
-                .padding(top = 16.dp)
+                .padding(bottom = 24.dp)
+                .weight(.2f),
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            Text(
-
-                text = stringResource(R.string.time_to_study)
-            )
+            HomeScreenButton(text = "Create New", onClick = { })
+            HomeScreenButton(text = "Quick Start", onClick = { })
+            HomeScreenButton(text = "Library", onClick = { })
         }
-        HomeCarousel(homeCarouselViewModel = hiltViewModel())
     }
 }
