@@ -28,7 +28,8 @@ fun HomeCarouselItemView(item: HomeCarouselItem) {
             text = item.title,
             fontSize = 20.sp,
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(bottom = 20.dp),
             textAlign = TextAlign.Center
         )
         Image(
@@ -42,7 +43,8 @@ fun HomeCarouselItemView(item: HomeCarouselItem) {
             text = item.description,
             fontSize = 20.sp,
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(top = 20.dp),
             textAlign = TextAlign.Center
         )
     }

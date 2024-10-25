@@ -2,10 +2,8 @@ package com.example.securitypluscards.presentation.home.components.home_carousel
 
 import androidx.compose.foundation.interaction.collectIsDraggedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -30,38 +28,38 @@ fun HomeCarousel(homeCarouselViewModel: HomeCarouselViewModel) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .wrapContentSize(Alignment.Center)
     ) {
-        HorizontalPager(
-            state = pagerState,
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .height(250.dp),
-            pageSpacing = 0.dp
-        ) { page ->
-            val item = carouselItems[page]
-            HomeCarouselItemView(
-                HomeCarouselItem(
-                    imageResId = item.imageResId,
-                    title = stringResource(item.title),
-                    description = stringResource(item.description)
-                )
-            )
-        }
-
-        Surface(
-            modifier = Modifier
-                .padding(bottom = 8.dp)
-                .align(Alignment.BottomCenter),
-            shape = CircleShape,
-            color = SoftBlue
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            HomeIndicatorDots(
-                modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
-                totalDots = pageCount,
-                selectedIndex = if (isDragged) pagerState.currentPage else pagerState.targetPage,
-                dotSize = 8.dp
-            )
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                pageSpacing = 0.dp
+            ) { page ->
+                val item = carouselItems[page]
+                HomeCarouselItemView(
+                    HomeCarouselItem(
+                        imageResId = item.imageResId,
+                        title = stringResource(item.title),
+                        description = stringResource(item.description)
+                    )
+                )
+            }
+            Surface(
+                modifier = Modifier,
+                shape = CircleShape,
+                color = SoftBlue
+            ) {
+                HomeIndicatorDots(
+                    totalDots = pageCount,
+                    selectedIndex = if (isDragged) pagerState.currentPage else pagerState.targetPage,
+                    dotSize = 8.dp
+                )
+            }
         }
     }
 }
