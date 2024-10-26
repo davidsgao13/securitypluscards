@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,8 +20,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.securitypluscards.R
+import com.example.securitypluscards.presentation.Screen
 import com.example.securitypluscards.presentation.home.components.home_carousel.HomeCarousel
-import com.example.securitypluscards.presentation.home.view_models.HomeViewModel
+import com.example.securitypluscards.presentation.home.view_models.home.HomeViewModel
 import com.example.securitypluscards.presentation.theme.SoftBlue
 
 @Composable
@@ -67,7 +66,9 @@ fun HomeScreen(
                 .weight(.2f),
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            HomeScreenButton(text = "Create New", onClick = { })
+            HomeScreenButton(text = "Create New", onClick = {
+                navController.navigate(Screen.DeckScreen.route + "/newDeck")
+            })
             HomeScreenButton(text = "Quick Start", onClick = { })
             HomeScreenButton(text = "Library", onClick = { })
         }

@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.securitypluscards.domain.model.HomeCarouselItem
-import com.example.securitypluscards.presentation.home.view_models.HomeCarouselViewModel
+import com.example.securitypluscards.presentation.home.view_models.home.HomeCarouselViewModel
 import com.example.securitypluscards.presentation.theme.SoftBlue
 
 @Composable

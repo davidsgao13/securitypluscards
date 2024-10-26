@@ -1,4 +1,4 @@
-package com.example.securitypluscards.presentation.home.view_models
+package com.example.securitypluscards.presentation.home.view_models.home
 
 import androidx.lifecycle.ViewModel
 import com.example.securitypluscards.R
