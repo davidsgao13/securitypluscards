@@ -20,8 +20,8 @@ class CardViewModel @Inject constructor(
         _state.value = _state.value.copy(isFlipped = !_state.value.isFlipped)
     }
 
-    fun markAnswered(isCorrect: Boolean) {
-        _state.value = _state.value.copy(isAnswered = true, isCorrect = isCorrect)
+    fun markAnswered(answer: Boolean) {
+        _state.value = _state.value.copy(isAnswered = answer)
     }
 
 }

@@ -1,7 +1,7 @@
 package com.example.securitypluscards.presentation.card
 
-class CardState(
+data class CardState(
     var isFlipped: Boolean = false,
-    var isAnswered: Boolean = false
+    var isAnswered: Boolean = false,
 ) {
 }

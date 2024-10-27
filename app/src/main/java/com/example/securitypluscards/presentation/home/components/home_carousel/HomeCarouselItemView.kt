@@ -27,14 +27,7 @@ fun HomeCarouselItemView(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = title,
-            fontSize = 20.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 20.dp),
-            textAlign = TextAlign.Center
-        )
+        HomeCarouselItemViewText(text = title)
         Image(
             modifier = Modifier
                 .size(150.dp)
@@ -42,13 +35,18 @@ fun HomeCarouselItemView(
             painter = painterResource(id = imageResId),
             contentDescription = null
         )
-        Text(
-            text = description,
-            fontSize = 20.sp,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 20.dp),
-            textAlign = TextAlign.Center
-        )
+        HomeCarouselItemViewText(text = description)
     }
+}
+
+@Composable
+fun HomeCarouselItemViewText(text: String) {
+    Text(
+        text = text,
+        fontSize = 20.sp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 20.dp),
+        textAlign = TextAlign.Center
+    )
 }
