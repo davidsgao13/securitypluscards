@@ -14,10 +14,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.securitypluscards.domain.model.HomeCarouselItem
 
 @Composable
-fun HomeCarouselItemView(item: HomeCarouselItem) {
+fun HomeCarouselItemView(
+    imageResId: Int,
+    title: String,
+    description: String
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -25,7 +28,7 @@ fun HomeCarouselItemView(item: HomeCarouselItem) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = item.title,
+            text = title,
             fontSize = 20.sp,
             modifier = Modifier
                 .fillMaxWidth()
@@ -36,11 +39,11 @@ fun HomeCarouselItemView(item: HomeCarouselItem) {
             modifier = Modifier
                 .size(150.dp)
                 .aspectRatio(1f),
-            painter = painterResource(id = item.imageResId),
+            painter = painterResource(id = imageResId),
             contentDescription = null
         )
         Text(
-            text = item.description,
+            text = description,
             fontSize = 20.sp,
             modifier = Modifier
                 .fillMaxWidth()

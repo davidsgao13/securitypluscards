@@ -1,9 +1,10 @@
-package com.example.securitypluscards.presentation.deck
+package com.example.securitypluscards.presentation.deck.view_models
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.example.securitypluscards.presentation.deck.DeckState
 import javax.inject.Inject
 
 class DeckViewModel @Inject constructor(

@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.securitypluscards.domain.model.HomeCarouselItem
 import com.example.securitypluscards.presentation.home.view_models.home.HomeCarouselViewModel
 import com.example.securitypluscards.presentation.theme.SoftBlue
 
@@ -42,11 +41,9 @@ fun HomeCarousel(homeCarouselViewModel: HomeCarouselViewModel) {
             ) { page ->
                 val item = carouselItems[page]
                 HomeCarouselItemView(
-                    HomeCarouselItem(
-                        imageResId = item.imageResId,
-                        title = stringResource(item.title),
-                        description = stringResource(item.description)
-                    )
+                    imageResId = item.imageResId,
+                    title = stringResource(item.title),
+                    description = stringResource(item.description)
                 )
             }
             Surface(
